@@ -20,12 +20,12 @@
                 {!! csrf_field() !!}
 
                 <div class="form-group has-feedback {{ $errors->has('email') ? 'has-error' : '' }}">
-                    <input type="email" name="email" class="form-control" value="{{ old('email') }}"
-                           placeholder="{{ trans('adminlte::adminlte.email') }}">
+                    <input id="login" type="login" class="form-control" name="login" value="{{ old('login') }}"
+                          required autofocus placeholder="Introduce tu E-Mail o Nombre de Usuario">
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                    @if ($errors->has('email'))
+                    @if ($errors->has('login'))
                         <span class="help-block">
-                            <strong>{{ $errors->first('email') }}</strong>
+                            <strong>{{ $errors->first('login') }}</strong>
                         </span>
                     @endif
                 </div>
@@ -40,13 +40,7 @@
                     @endif
                 </div>
                 <div class="row">
-                    <div class="col-xs-8">
-                        <div class="checkbox icheck">
-                            <label>
-                                <input type="checkbox" name="remember"> {{ trans('adminlte::adminlte.remember_me') }}
-                            </label>
-                        </div>
-                    </div>
+
                     <!-- /.col -->
                     <div class="col-xs-4">
                         <button type="submit"
@@ -55,17 +49,7 @@
                     <!-- /.col -->
                 </div>
             </form>
-            <div class="auth-links">
-                <a href="{{ url(config('adminlte.password_reset_url', 'password/reset')) }}"
-                   class="text-center"
-                >{{ trans('adminlte::adminlte.i_forgot_my_password') }}</a>
-                <br>
-                @if (config('adminlte.register_url', 'register'))
-                    <a href="{{ url(config('adminlte.register_url', 'register')) }}"
-                       class="text-center"
-                    >{{ trans('adminlte::adminlte.register_a_new_membership') }}</a>
-                @endif
-            </div>
+           
         </div>
         <!-- /.login-box-body -->
     </div><!-- /.login-box -->
