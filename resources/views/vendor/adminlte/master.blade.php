@@ -15,17 +15,29 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/vendor/Ionicons/css/ionicons.min.css') }}">
 
+
+    <link rel="stylesheet" href="{{ asset('vendor/adminlte/plugins/iCheck/all.css') }}">
+
+
+    <link rel="stylesheet" href="{{ asset('css/resources/sweetalert.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('css/resources/animate.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('css/resources/personalized.css') }}">
+
+
+
     @if(config('adminlte.plugins.select2'))
         <!-- Select2 -->
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css">
+        <link rel="stylesheet" href="{{ asset('css/resources/select2.css') }}">
     @endif
 
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/dist/css/AdminLTE.min.css') }}">
 
     @if(config('adminlte.plugins.datatables'))
-        <!-- DataTables with bootstrap 3 style -->
-        <link rel="stylesheet" href="//cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="{{ asset('css/resources/jquery.dataTables.min.css') }}">
     @endif
 
     @yield('adminlte_css')
@@ -36,30 +48,38 @@
     <![endif]-->
 
     <!-- Google Font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet" href="{{ asset('css/resources/googleapis.css') }}">
 </head>
 <body class="hold-transition @yield('body_class')">
 
 @yield('body')
 
+
+<script src="{{ asset('js/resources/sweetalert.js') }}"></script>
+
+@include('sweet::alert')
+
+
 <script src="{{ asset('vendor/adminlte/vendor/jquery/dist/jquery.min.js') }}"></script>
 <script src="{{ asset('vendor/adminlte/vendor/jquery/dist/jquery.slimscroll.min.js') }}"></script>
 <script src="{{ asset('vendor/adminlte/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('vendor/adminlte/plugins/iCheck/icheck.min.js') }}"></script>
 
 @if(config('adminlte.plugins.select2'))
     <!-- Select2 -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <script src="{{ asset('js/resources/select2.min.js') }}"></script>
 @endif
 
 @if(config('adminlte.plugins.datatables'))
-    <!-- DataTables with bootstrap 3 renderer -->
-    <script src="//cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.js"></script>
+    <!-- DataTables -->
+    <script src="{{ asset('js/resources/jquery.dataTables.min.js') }}"></script>
 @endif
 
 @if(config('adminlte.plugins.chartjs'))
     <!-- ChartJS -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
+    <script src="{{ asset('js/resources/Chart.bundle.min.js') }}"></script>
 @endif
+
 
 @yield('adminlte_js')
 

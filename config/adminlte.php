@@ -108,81 +108,43 @@ return [
     */
 
     'menu' => [
-        'MAIN NAVIGATION',
+
+        'MENU PRINCIPAL',
         [
-            'text' => 'Blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'text' => 'Tareas',
+            'url'  => 'tareas',
+            'icon' => 'magic',
         ],
         [
-            'text'        => 'Pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
-        'ACCOUNT SETTINGS',
+            'text'        => 'Usuarios',
+            'url'         => 'manageusers',
+            'icon'        => 'users',
+        ],       
         [
-            'text' => 'Profile',
-            'url'  => 'admin/settings',
-            'icon' => 'user',
-        ],
-        [
-            'text' => 'Change Password',
-            'url'  => 'admin/settings',
-            'icon' => 'lock',
-        ],
-        [
-            'text'    => 'Multilevel',
-            'icon'    => 'share',
+            'text'    => 'Complementos',
+            'icon'    => 'cog',
             'submenu' => [
                 [
-                    'text' => 'Level One',
-                    'url'  => '#',
+                    'text' => 'Motivos',
+                    'url'  => 'motivos',
                 ],
                 [
-                    'text'    => 'Level One',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'Level Two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'Level Two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'Level Three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'Level Three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
+                    'text' => 'Servidores',
+                    'url'  => 'servidores',
                 ],
                 [
-                    'text' => 'Level One',
-                    'url'  => '#',
-                ],
-            ],
-        ],
-        'LABELS',
-        [
-            'text'       => 'Important',
-            'icon_color' => 'red',
+                    'text' => 'Base de Datos',
+                    'url'  => 'bases',
+                ]
+            ]
         ],
         [
-            'text'       => 'Warning',
-            'icon_color' => 'yellow',
+            'text' => 'Informes',
+            'url'  => 'informes',
+            'icon' => 'file-pdf-o',
         ],
-        [
-            'text'       => 'Information',
-            'icon_color' => 'aqua',
-        ],
+        
+
     ],
 
     /*

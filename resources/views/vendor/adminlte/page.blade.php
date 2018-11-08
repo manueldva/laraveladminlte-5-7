@@ -154,13 +154,53 @@
             <section class="content-header">
                 @yield('content_header')
             </section>
+ <!-- confirm-delete -->
 
+            @yield('include_delete')
+
+            
             <!-- Main content -->
-            <section class="content">
 
+            <section class="content animated fadeIn">
+
+
+            @if(session('danger'))
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="alert alert-danger">
+                                {{ session('danger')}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+
+            @if(count($errors))
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach($errors->all() as $error)
+                                        <li>
+                                            {{ $error }}
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+
+            
                 @yield('content')
 
+                <div class="go-up"><i class="glyphicon glyphicon-arrow-up"></i></div>
+
             </section>
+            
             <!-- /.content -->
             @if(config('adminlte.layout') == 'top-nav')
             </div>
@@ -175,6 +215,32 @@
 
 @section('adminlte_js')
     <script src="{{ asset('vendor/adminlte/dist/js/adminlte.min.js') }}"></script>
+     <script type="text/javascript">
+
+
+        $('div.alert').not('.alert-important').delay(3000).fadeOut(350) 
+
+        $('input[type="checkbox"], input[type="radio"]').iCheck({
+            checkboxClass: 'icheckbox_square-blue',
+            radioClass: 'iradio_square-blue',
+            increaseArea: '20%' // optional
+        })
+
+        $('.go-up').click(function(){
+            $('body, html').animate({
+                scrollTop: '0px'
+            }, 300);
+        });
+     
+        $(window).scroll(function(){
+            if( $(this).scrollTop() > 0 ){
+                $('.go-up').slideDown(300);
+            } else {
+                $('.go-up').slideUp(300);
+            }
+        });
+    </script>
+
     @stack('js')
     @yield('js')
 @stop
